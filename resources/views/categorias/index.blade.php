@@ -16,16 +16,17 @@
         
     @endif
 
-    <a href="{{ route('categorias.create') }}" class="btn btn-outline-dark">Agregar Nueva Categoría</a>
+    <a href="{{ route('categorias.create') }}" class="btn btn-secondary">Agregar Nueva Categoría</a>
 
     @if($categorias->isEmpty())
         <p>No hay categorías registradas.</p>
     @else
-        <table class="table table-bordered">
+        <table class="table table-dark table-hover mt-4" style="justify-content: center">
             <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Descripcion</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>

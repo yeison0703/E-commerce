@@ -17,6 +17,6 @@
     </div>
     @endif
     <br>
-    <a href="{{ url('/') }}" class="btn btn-outline-dark">Volver al catalogo</a>
+    <a href="{{ url('/') }}" class="btn btn-secondary">Volver al catalogo</a>
 </div>
 @endsection

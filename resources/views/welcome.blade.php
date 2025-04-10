@@ -12,7 +12,7 @@
                     'Dulces'=>'https://d100mj7v0l85u5.cloudfront.net/s3fs-public/2023-03/asi-esta-el-mercado-de-dulces-en-colombia_0.png',
                     'Bebidas'=>'https://www.noticiasneo.com/sites/default/files/2023-01/bebidasNAok.png',
                     //agregar nombre y url para mas categorias
-        ];
+                 ];
             @endphp
 
             @foreach ($categorias as $index => $categoria)
@@ -24,7 +24,7 @@
 
                         <h5 class="mt-3">{{ $categoria->descripcion }}</h5>
 
-                        <a href="{{ route('categorias.producto', $categoria->id) }}" class="btn btn-outline-dark">
+                        <a href="{{ route('categorias.producto', $categoria->id) }}" class="btn btn-secondary">
                             {{ $categoria->nombre }}
                         </a>
                     </div>
@@ -40,6 +40,7 @@
                 border-radius: 20%; 
             }
         </style>
+        
         <button class="carousel-control-prev" type="button" data-bs-target="#categoriasCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Anterior</span>

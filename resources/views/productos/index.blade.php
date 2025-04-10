@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="container">
+
     <h1 style="text-align: center">Lista de Productos</h1>
-    <a href="{{ route('productos.create') }}" class="btn btn-outline-dark">Agregar Nuevo Producto</a>
+
+    <a href="{{ route('productos.create') }}" class="btn btn-secondary">Agregar Nuevo Producto</a>
 
 
     @if(session('success'))
@@ -16,7 +18,7 @@
         <p>No hay productos registrados.</p>
     @else
     
-    <table class="table table-bordered">
+    <table class="table table-dark table-hover mt-4" style="justify-content: center">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -25,7 +27,8 @@
                 <th>Stock</th>
                 <th>Categoría</th>
                 <th>Imagen</th>
-                <th>Fecha de creación</th>
+                <th>Fecha de creación</th>  
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -36,7 +39,8 @@
                 <td>${{ $producto->precio }}</td>
                 <td>{{ $producto->stock }}</td>
                 <td>{{ $producto->categoria->nombre ?? 'sin categoria' }}</td>
-                <td>
+                <td class="p-0 m-0" style="justify-content: center; display: flex; align-items: center;width:100%;object-fit: cover;">
+                    {{-- Si la imagen no es nula, mostrarla, de lo contrario mostrar "Sin imagen" --}}
                     @if ($producto->imagen)
                         <img src="{{ e($producto->imagen) }}" width="80" alt="imagen del producto">
                     @else
@@ -56,7 +60,9 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
+     </table>
+    </div>
+    </div>
     @endif
 </div>
 @endsection

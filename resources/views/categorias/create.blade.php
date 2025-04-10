@@ -17,9 +17,9 @@
     <form action="{{ route('categorias.store') }}" method="POST">
         @csrf
         <label for="nombre">Nombre de la categoría:</label>
-        <input type="text" name="nombre" id="nombre" value="{{ old('nombre') }}" required>
+        <input class="form-control" type="text" name="nombre" id="nombre" value="{{ old('nombre') }}" required>
         <label for="descripcion">Descripcion:</label>
-        <textarea name="descripcion" id="descripcion">{{ old('descripcion',$categoria->descripcion ?? '') }}</textarea>
+        <textarea class="form-control" name="descripcion" id="descripcion">{{ old('descripcion',$categoria->descripcion ?? '') }}</textarea>
         <br><br>
         <button type="submit" class="btn btn-outline-dark">Guardar</button>
         <a href="{{ route('categorias.index') }}" class="btn btn-secondary">Cancelar</a>
