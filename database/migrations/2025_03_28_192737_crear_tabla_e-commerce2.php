@@ -20,19 +20,16 @@ return new class extends Migration
             $table->string('descripcion');
             $table->integer('precio');
             $table->integer('stock');
-            $table->string('categoria');
-            $table->string('imagen(ruta)');
-            $table->date('fecha creacion');
-            $table->date('fecha actualizacion');
+            $table->string('imagen');
+            $table->timestamps(); // Crea created_at y updated_at automáticamente
             
         });
 
-        Schema::create('Categoria', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('descripcion');
-            $table->date('fecha creacion');
-            $table->date('fecha actualizacion');
+            $table->timestamps();
             
         });
 
