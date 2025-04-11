@@ -52,7 +52,7 @@
             <input type="url" name="imagen" id="imagen" class="form-control" value="{{ old('imagen') }}">
         </div>
 
-        <button type="submit" class="btn btn-outline-dark">Guardar</button>
+        <button type="submit" class="btn btn-light">Guardar</button>
         <a href="{{ route('productos.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>

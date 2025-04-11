@@ -40,7 +40,7 @@
 
         <div class="mb-3">
             <label for="categoria_id" class="form-label">Categoría:</label>
-            <select name="categoria_id" id="categoria_id" required>
+            <select class="form-select" name="categoria_id" id="categoria_id" required>
             <option value="">Seleccione una categoria</option>
             @foreach($categorias as $categoria)
                 <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
@@ -53,8 +53,8 @@
             <input type="text" name="imagen" class="form-control" value="{{ $producto->imagen }}" required>
         </div>
 
-        <button type="submit" class="btn btn-outline-dark">Actualizar</button>
-        <a href="{{ route('productos.index') }}" class="btn btn-secondary mt-3">Cancelar</a>
+        <button type="submit" class="btn btn-light">Actualizar</button>
+        <a href="{{ route('productos.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 @endsection

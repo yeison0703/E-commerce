@@ -18,12 +18,12 @@
         @csrf
         @method('PUT')
         <label for="nombre">Nombre de la categoría:</label>
-        <input type="text" name="nombre" id="nombre" value="{{ old('nombre', $categoria->nombre) }}" required>
+        <input  class="form-control" type="text" name="nombre" id="nombre" value="{{ old('nombre', $categoria->nombre) }}" required>
         <label for="descripcion">Descripcion:</label>
-        <textarea name="descripcion" id="descripcion">{{ old('descripcion',$categoria->descripcion ?? '') }}</textarea>
+        <textarea class="form-control" name="descripcion" id="descripcion">{{ old('descripcion',$categoria->descripcion ?? '') }}</textarea>
         <br><br>
-        <button type="submit" class="btn btn-outline-dark">Actualizar</button>
-        <a href="{{ route('categorias.index') }}" class="btn btn-secondary mt-3">Cancelar</a>
+        <button type="submit" class="btn btn-light">Actualizar</button>
+        <a href="{{ route('categorias.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 @endsection

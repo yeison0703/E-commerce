@@ -21,7 +21,7 @@
         <label for="descripcion">Descripcion:</label>
         <textarea class="form-control" name="descripcion" id="descripcion">{{ old('descripcion',$categoria->descripcion ?? '') }}</textarea>
         <br><br>
-        <button type="submit" class="btn btn-outline-dark">Guardar</button>
+        <button type="submit" class="btn btn-light">Guardar</button>
         <a href="{{ route('categorias.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>

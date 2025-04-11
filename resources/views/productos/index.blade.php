@@ -42,7 +42,7 @@
                 <td class="p-0 m-0" style="justify-content: center; display: flex; align-items: center;width:100%;object-fit: cover;">
                     {{-- Si la imagen no es nula, mostrarla, de lo contrario mostrar "Sin imagen" --}}
                     @if ($producto->imagen)
-                        <img src="{{ e($producto->imagen) }}" width="80" alt="imagen del producto">
+                        <img src="{{ e($producto->imagen) }}" width="80" height="60" alt="imagen del producto">
                     @else
                         Sin imagen
                     @endif

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Categoria;
+use App\Mail\StockBajo;
+use Illuminate\Support\Facades\Mail;
 
 class ProductoController extends Controller
 {
@@ -37,7 +39,7 @@ class ProductoController extends Controller
     ]);
 
     // Crear el producto
-    Producto::create([
+    $producto = Producto::create([
         'nombre' => $request->nombre,
         'descripcion' => $request->descripcion,
         'precio' => $request->precio,
@@ -45,10 +47,16 @@ class ProductoController extends Controller
         'categoria_id' => $request->categoria_id,
         'imagen' => $request->imagen,
     ]);
+    if ($producto->stock < 5){
+        
+            Mail::to('you@yourmailtrap.ombox')->send(new StockBajo($producto));
+        }
+    
 
     // Redirigir al listado
     return redirect()->route('productos.index')->with('success', 'Producto creado exitosamente.');
 }
+
 
     public function show(string $id)
     {
