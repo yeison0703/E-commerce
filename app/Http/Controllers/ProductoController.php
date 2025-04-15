@@ -49,7 +49,7 @@ class ProductoController extends Controller
     ]);
     if ($producto->stock < 5){
         
-            Mail::to('you@yourmailtrap.ombox')->send(new StockBajo($producto));
+            Mail::to('yeisongallego2002@gmail.com')->send(new StockBajo($producto));
         }
     
 
@@ -60,7 +60,8 @@ class ProductoController extends Controller
 
     public function show(string $id)
     {
-        //
+        $producto = Producto::with('categoria')->findOrFail($id); // Obtener el producto con la relación de categoría
+        return view('productos.show', compact('producto'));
     }
 
 

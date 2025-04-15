@@ -14,6 +14,7 @@ Route::resource('productos', ProductoController::class);
 Route::get('/productos/create', [ProductoController::class, 'create'])->name('productos.create');
 Route::get('/producto/{id}/editar', [ProductoController::class, 'edit'])->name('producto.edit');
 Route::put('/producto/{id}', [ProductoController::class, 'update'])->name('producto.update');
+Route::get('/producto/{id}', [ProductoController::class, 'show'])->name('producto.show');
 
 Route::resource('categorias', CategoriaController::class);
 Route::get('/categorias/{id}/productos',[CategoriaController::class, 'verProductos'])->name('categorias.producto');

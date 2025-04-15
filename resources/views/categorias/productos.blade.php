@@ -9,14 +9,15 @@
 
         @foreach ($productos as $producto)
         <div style="border: 1px solid #ccc; padding: 15px; width: 200px; text-align: center;">
-            <img src="{{ $producto->imagen }}" alt="imagen del producto" width="100">
+            <img src="{{ $producto->imagen }}" alt="imagen del producto" width="100" height="100">
             <h5>{{ $producto->nombre }}</h5>
             <p>${{ $producto->precio }}</p>
+            <a href="{{ route('producto.show',$producto->id)}}" class="btn btn-secondary">Ver</a>
         </div>
         @endforeach
     </div>
     @endif
     <br>
-    <a href="{{ url('/') }}" class="btn btn-secondary">Volver al catalogo</a>
+    <a href="{{ url('/') }}" class="btn btn-secondary">Volver al inicio</a>
 </div>
 @endsection
