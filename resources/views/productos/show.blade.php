@@ -4,7 +4,7 @@
     <h2 style="text-align: center">{{ $producto->nombre }}</h2>
     <div class="row" style="margin-top: 10px">
       <div class="col-md-6">    
-        <img src="{{ $producto->imagen }}" alt="{{ $producto->mombre }}" class="img-fluid rounded shadow" width="400" height="400">
+        <img src="{{ $producto->imagen }}" alt="{{ $producto->mombre }}" class="rounded shadow" width="300" height="300">
       </div>
      <div class="col-md-6" style="justify content: center">
         <h4>Precio: ${{ $producto->precio }}</h4>
