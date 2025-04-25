@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comentario extends Model
 {
+    protected $fillable = [
+        'articulo_id',
+        'nombre_usuario',
+        'email',
+        'contenido',
+    ];
     protected $table = 'comentarios';
     public function articulo()
     {

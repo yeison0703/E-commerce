@@ -18,13 +18,14 @@
     </style>
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar"  >
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">Mi Tienda</a>
+            <a class="navbar-brand" href="{{ url('/blog') }}">Mi Blog</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto color-white">
-                    <li class="nav-item"><a class="nav-link {{ request()->is('icicio*') ? 'active' : '' }}" href="{{ url('/') }}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->is('productos*') ? 'active' : '' }}" href="{{ route('productos.index') }}">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->is('categorias*') ? 'active' : '' }}" href="{{ route('categorias.index') }}">Categorías</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->is('Blog*') ? 'active' : '' }}" href="{{route('blog.home')}}">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->is('icicio*') ? 'active' : '' }}" href="{{ route('blog.home') }}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->is('articulos*') ? 'active' : '' }}" href="{{ route('articulos.index') }}">Articulos</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->is('categorias_blog*') ? 'active' : '' }}" href="{{ route('categorias_blog.index') }}">Categorías</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->is('e-commerce*') ? 'active' : '' }}" href="{{url('/')}}">E-commerce</a></li>
+
                 </ul>
             </div>
         </div>
