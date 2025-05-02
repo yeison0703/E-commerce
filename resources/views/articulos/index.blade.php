@@ -5,8 +5,10 @@
 
     <h1 style="text-align: center">Lista de Articulos</h1>
 
-    <a href="{{ route('articulos.create') }}" class="btn btn-secondary">Agregar Nuevo Articulo</a>
-
+   @auth
+       
+   <a href="{{ route('articulos.create') }}" class="btn btn-secondary">Agregar Nuevo Articulo</a>
+   @endauth
 
     @if(session('success'))
         <div style="color: green;">
@@ -26,7 +28,7 @@
                 <th>Categoría</th>
                 <th>Autor</th>
                 <th>Fecha de publicación</th>
-                <th class="col-2" >Acciones</th>
+               @auth <th class="col-2" >Acciones</th> @endauth
             </tr>
         </thead>
         <tbody>
@@ -45,6 +47,8 @@
                     <td>
                         {{ $articulo->fecha_publicacion ? \Carbon\Carbon::parse($articulo->fecha_publicacion)->format('d/m/Y') : 'No definida' }}
                     </td>
+                   @auth
+                       
                     <td>
                         <a href="{{ route('articulos.edit', $articulo->id) }}" class="btn btn-warning btn-sm">Editar</a>
                         <form action="{{ route('articulos.destroy', $articulo->id) }}" method="POST" style="display:inline;">
@@ -53,6 +57,7 @@
                             <button class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
                         </form>
                     </td>
+                    @endauth
                 </tr>
             @endforeach
         </tbody>

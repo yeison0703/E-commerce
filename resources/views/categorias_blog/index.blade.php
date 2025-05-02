@@ -3,7 +3,9 @@
 <div class="container mt-4">
     <h2 class="text-center mb-4">Categorias</h2>
 
-   <a href="{{ route('categorias_blog.create') }}" class="btn btn-secondary">Agregar Nueva Categoria</a>
+ @auth
+ <a href="{{ route('categorias_blog.create') }}" class="btn btn-secondary">Agregar Nueva Categoria</a>
+ @endauth 
 
    @if(session('success'))
    <div style="color: green;">
@@ -19,7 +21,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Descripción</th>
-                    <th>Acciones</th>
+                    @auth <th class="col-2" >Acciones</th> @endauth
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +29,7 @@
                     <tr>
                         <td>{{ $categoria->nombre }}</td>
                         <td>{{ $categoria->descripcion }}</td>
+                        @auth
                         <td>
                             <a href="{{ route('categorias_blog.edit', $categoria->id) }}" class="btn btn-warning btn-sm">Editar</a>
                             <form action="{{ route('categorias_blog.destroy', $categoria->id) }}" method="POST" style="display:inline;">
@@ -35,6 +38,7 @@
                                 <button class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
                             </form>
                         </td>
+                        @endauth
                     </tr>
                 @endforeach
             </tbody>

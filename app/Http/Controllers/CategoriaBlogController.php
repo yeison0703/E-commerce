@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class CategoriaBlogController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
+
     public function index()
     {
         $categorias = CategoriaBlog::all();

@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
+public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'verProductos']);
+    }
+
     public function index()
     {
         $categorias = Categoria::all();

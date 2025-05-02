@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\NuevoComentarioMail;
 
 class ComentarioController extends Controller
+
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
     public function index()
     {
         return view('comentarios.index');

@@ -11,6 +11,7 @@ use App\Models\CategoriaBlog;
 use App\Http\Controllers\CategoriaBlogController;
 use App\Http\Controllers\ComentarioController;
 use App\Models\Comentario;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
    $categorias = Categoria::all();
@@ -36,3 +37,10 @@ Route::resource('categorias_blog', CategoriaBlogController::class);
 Route::resource('comentarios', ComentarioController::class);
 Route::post('/comentarios', [ComentarioController::class, 'store'])->name('comentarios.store');
 Route::delete('/comentarios/{}', [ComentarioController::class, 'destroy'])->name('comentarios.destroy');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('users', UserController::class);
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');

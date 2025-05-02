@@ -25,6 +25,24 @@
                     <li class="nav-item"><a class="nav-link {{ request()->is('productos*') ? 'active' : '' }}" href="{{ route('productos.index') }}">Productos</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->is('categorias*') ? 'active' : '' }}" href="{{ route('categorias.index') }}">Categorías</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->is('Blog*') ? 'active' : '' }}" href="{{route('blog.home')}}">Blog</a></li>
+
+                    @auth
+                        <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Registrar Usuario</a></li>
+                    @endauth
+                
+                @guest
+                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Iniciar Sesion</a></li>
+                @endguest
+         
+                @auth
+                <li class="nav-item"><a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Cerrar Sesion</a></li>
+     
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                     @csrf
+                </form>
+            @endauth 
+                
+                
                 </ul>
             </div>
         </div>

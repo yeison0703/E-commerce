@@ -8,6 +8,10 @@ use App\Models\CategoriaBlog;
 
 class ArticuloController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show', 'homeBlog']);
+    }
     public function homeBlog()
     {
         $articulos = Articulo::latest()->take(4)->get();

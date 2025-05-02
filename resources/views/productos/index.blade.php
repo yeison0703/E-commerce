@@ -5,8 +5,10 @@
 
     <h1 style="text-align: center">Lista de Productos</h1>
 
-    <a href="{{ route('productos.create') }}" class="btn btn-secondary">Agregar Nuevo Producto</a>
-
+  @auth
+      
+   <a href="{{ route('productos.create') }}" class="btn btn-secondary">Agregar Nuevo Producto</a>
+   @endauth
 
     @if(session('success'))
         <div style="color: green;">
@@ -28,7 +30,7 @@
                 <th>Categoría</th>
                 <th>Imagen</th>
                 <th>Fecha de creación</th>  
-                <th>Acciones</th>
+                @auth <th class="col-2" >Acciones</th> @endauth
             </tr>
         </thead>
         <tbody>
@@ -48,6 +50,7 @@
                     @endif
                 </td>
                 <td>{{ $producto->created_at->format('d/m/Y H:i') }}</td>
+                @auth
                 <td>
                     <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-warning btn-sm">Editar</a>
                 
@@ -57,6 +60,7 @@
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este producto?')">Eliminar</button>
                     </form>
                 </td>
+                @endauth
             </tr>
             @endforeach
         </tbody>
